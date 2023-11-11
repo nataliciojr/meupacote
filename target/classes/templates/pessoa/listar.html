@@ -1,0 +1,41 @@
+<!-- src/main/resources/templates/pessoa/listar.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Pessoas</title>
+</head>
+<body>
+    <h2>Listar Pessoas</h2>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iteração sobre a lista de pessoas -->
+            <tr th:each="pessoa : ${pessoas}">
+                <td th:text="${pessoa.id}"></td>
+                <td th:text="${pessoa.nome}"></td>
+                <td th:text="${pessoa.email}"></td>
+                <td>
+                    <!-- Links para visualizar, editar e excluir cada pessoa -->
+                    <a th:href="@{/pessoas/{id}(id=${pessoa.id})}">Visualizar</a> |
+                    <a th:href="@{/pessoas/editar/{id}(id=${pessoa.id})}">Editar</a> |
+                    <a th:href="@{/pessoas/excluir/{id}(id=${pessoa.id})}">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <!-- Link para criar uma nova pessoa -->
+    <a th:href="@{/pessoas/nova}">Nova Pessoa</a>
+</body>
+</html>

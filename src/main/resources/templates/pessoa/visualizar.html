@@ -1,0 +1,21 @@
+<!-- src/main/resources/templates/pessoa/visualizar.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Pessoa</title>
+</head>
+<body>
+    <h2>Visualizar Pessoa</h2>
+    
+    <!-- Exibição dos detalhes da pessoa -->
+    <p>ID: <span th:text="${pessoa.id}"></span></p>
+    <p>Nome: <span th:text="${pessoa.nome}"></span></p>
+    <p>Email: <span th:text="${pessoa.email}"></span></p>
+
+    <br>
+    <!-- Link para voltar à lista de pessoas -->
+    <a th:href="@{/pessoas}">Voltar para Lista</a>
+</body>
+</html>
